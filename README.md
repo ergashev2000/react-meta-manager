@@ -58,7 +58,7 @@ The `ReactMetaManager` component accepts the following props:
 
 Contributions to Meta Manager are welcome! You can contribute by:
 
-- Submitting issues to the [issue tracker](/issues).
+- Submitting issues to the [issue tracker](https://github.com/ergashev2000/react-meta-manager/issues).
 - Creating pull requests with improvements or bug fixes.
 
 Your input is highly appreciated and helps improve the project!
