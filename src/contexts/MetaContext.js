@@ -34,6 +34,7 @@ const defaultMetaContext = {
     author: '',
     favicon: '',
     icon: '',
+    themeColor: '',
     twitterCreator: '',
 };
 const MetaContext = (0, react_1.createContext)(defaultMetaContext);

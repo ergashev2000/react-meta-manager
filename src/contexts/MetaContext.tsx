@@ -9,6 +9,7 @@ interface MetaContextProps {
   author?: string;
   favicon?: string;
   icon?: string;
+  themeColor?: string;
   twitterCreator?: string;
 }
 
@@ -21,6 +22,7 @@ const defaultMetaContext: MetaContextProps = {
   author: '',
   favicon: '',
   icon: '',
+  themeColor: '',
   twitterCreator: '',
 };
 
