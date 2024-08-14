@@ -25,18 +25,20 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.useMetaContext = exports.MetaProvider = void 0;
 const react_1 = __importStar(require("react"));
-const MetaContext = (0, react_1.createContext)({});
-const MetaProvider = ({ children, defaults }) => {
-    const contextValue = (0, react_1.useMemo)(() => ({
-        title: defaults === null || defaults === void 0 ? void 0 : defaults.title,
-        description: defaults === null || defaults === void 0 ? void 0 : defaults.description,
-        url: defaults === null || defaults === void 0 ? void 0 : defaults.url,
-        ogImage: defaults === null || defaults === void 0 ? void 0 : defaults.ogImage,
-        keywords: defaults === null || defaults === void 0 ? void 0 : defaults.keywords,
-        author: defaults === null || defaults === void 0 ? void 0 : defaults.author,
-        favicon: defaults === null || defaults === void 0 ? void 0 : defaults.favicon,
-        icon: defaults === null || defaults === void 0 ? void 0 : defaults.icon,
-    }), [defaults]);
+const defaultMetaContext = {
+    title: '',
+    description: '',
+    url: '',
+    ogImage: '',
+    keywords: [],
+    author: '',
+    favicon: '',
+    icon: '',
+    twitterCreator: '',
+};
+const MetaContext = (0, react_1.createContext)(defaultMetaContext);
+const MetaProvider = ({ children, defaults = {} }) => {
+    const contextValue = (0, react_1.useMemo)(() => (Object.assign(Object.assign({}, defaultMetaContext), defaults)), [defaults]);
     return (react_1.default.createElement(MetaContext.Provider, { value: contextValue }, children));
 };
 exports.MetaProvider = MetaProvider;

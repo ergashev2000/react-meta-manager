@@ -9,23 +9,30 @@ interface MetaContextProps {
   author?: string;
   favicon?: string;
   icon?: string;
+  twitterCreator?: string;
 }
 
-const MetaContext = createContext<MetaContextProps>({});
+const defaultMetaContext: MetaContextProps = {
+  title: '',
+  description: '',
+  url: '',
+  ogImage: '',
+  keywords: [],
+  author: '',
+  favicon: '',
+  icon: '',
+  twitterCreator: '',
+};
+
+const MetaContext = createContext<MetaContextProps>(defaultMetaContext);
 
 export const MetaProvider: React.FC<{ 
-  children: ReactNode,
-  defaults?: MetaContextProps
-}> = ({ children, defaults }) => {
+  children: ReactNode; 
+  defaults?: MetaContextProps;
+}> = ({ children, defaults = {} }) => {
   const contextValue = useMemo(() => ({
-    title: defaults?.title,
-    description: defaults?.description,
-    url: defaults?.url,
-    ogImage: defaults?.ogImage,
-    keywords: defaults?.keywords,
-    author: defaults?.author,
-    favicon: defaults?.favicon,
-    icon: defaults?.icon,
+    ...defaultMetaContext,
+    ...defaults
   }), [defaults]);
 
   return (
